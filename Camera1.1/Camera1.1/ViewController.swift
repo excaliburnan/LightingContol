@@ -96,26 +96,22 @@ class ViewController: UIViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         if let touch = touches.first {
-//            let touchPer = touchPercent(touch)
-//            updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
-            let touchcent = touch.locationInView(self.view).x / screenWidth
-            focusTo(Float(touchcent))
+            let touchPer = touchPercent(touch)
+            updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
+//            let touchcent = touch.locationInView(self.view).x / screenWidth
+//            focusTo(Float(touchcent))
         }
         super.touchesBegan(touches, withEvent:event)
-//        let touchPer = touchPercent( touches!.first! )
-//        updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
     }
 
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?){
         if let touch = touches.first {
-//            let touchPer = touchPercent(touch)
-//            updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
-            let touchcent = touch.locationInView(self.view).x / screenWidth
-            focusTo(Float(touchcent))
+            let touchPer = touchPercent(touch)
+            updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
+//            let touchcent = touch.locationInView(self.view).x / screenWidth
+//            focusTo(Float(touchcent))
         }
         super.touchesMoved(touches, withEvent:event)
-//        let touchPer = touchPercent( touches!.first! )
-//        updateDeviceSettings(Float(touchPer.x), isoValue: Float(touchPer.y))
     }
     
     
