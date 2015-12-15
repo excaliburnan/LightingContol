@@ -78,14 +78,14 @@ class ViewController: UIViewController {
                 let maxISO = device.activeFormat.maxISO
                 let clampedISO = isoValue * (maxISO - minISO) + minISO
                 
-//                // 0~10, 0~1000
-//                let timescale = Int32(isoValue * 1000)
-//                let exposure = CMTimeMake(1, timescale)
-//                device.setExposureModeCustomWithDuration(exposure, ISO: clampedISO, completionHandler: { (time) -> Void in
-//                })
-                device.setExposureModeCustomWithDuration(AVCaptureExposureDurationCurrent, ISO: clampedISO, completionHandler: { (time) -> Void in
-                    //
+                // 0~10, 0~1000
+                let timescale = Int32(isoValue * 1000)
+                let exposure = CMTimeMake(1, timescale)
+                device.setExposureModeCustomWithDuration(exposure, ISO: clampedISO, completionHandler: { (time) -> Void in
                 })
+//                device.setExposureModeCustomWithDuration(AVCaptureExposureDurationCurrent, ISO: clampedISO, completionHandler: { (time) -> Void in
+//                    //
+//                })
                 device.unlockForConfiguration()
             } catch {
                 print(error)
