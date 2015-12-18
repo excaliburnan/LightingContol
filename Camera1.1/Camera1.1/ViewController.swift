@@ -121,7 +121,6 @@ class ViewController: UIViewController {
             possibleCameraInput = try AVCaptureDeviceInput(device: captureDevice)
         }
         catch let error as NSError {
-            // Handle any errors
             print(error)
         }
         if let backCameraInput = possibleCameraInput as? AVCaptureDeviceInput {
