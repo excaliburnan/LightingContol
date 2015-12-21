@@ -14,11 +14,15 @@ class View2: UIViewController,UIImagePickerControllerDelegate,UINavigationContro
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
+    var didTakePhoto = Bool()
+
 
     @IBOutlet weak var cameraView: UIView!
+
+    @IBOutlet weak var tempImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -33,9 +37,8 @@ class View2: UIViewController,UIImagePickerControllerDelegate,UINavigationContro
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         captureSession = AVCaptureSession()
-        captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        captureSession?.sessionPreset = AVCaptureSessionPresetHigh
         
         let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var input : AVCaptureInput?
@@ -59,6 +62,8 @@ class View2: UIViewController,UIImagePickerControllerDelegate,UINavigationContro
                 captureSession?.addOutput(stillImageOutput)
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                // The ratio of the video (fill the layer)
+                //previewLayer?.videoGravity = AVLayerVideoGravityResize
                 previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
                 cameraView.layer.addSublayer(previewLayer!)
@@ -67,50 +72,54 @@ class View2: UIViewController,UIImagePickerControllerDelegate,UINavigationContro
         }
     }
     
-    @IBOutlet weak var tempImageView: UIImageView!
-    
     func didPressTakePhoto(){
-        
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {
                 (sampleBuffer, error) in
-                
                 if sampleBuffer != nil {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider  = CGDataProviderCreateWithCFData(imageData)
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, .RenderingIntentDefault)
-                    
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    
                     self.tempImageView.image = image
                     self.tempImageView.hidden = false
                 }
-                
             })
         }
     }
-    
-    var didTakePhoto = Bool()
     
     func didPressTakeAnother(){
         if didTakePhoto == true{
             tempImageView.hidden = true
             didTakePhoto = false
-            
         }
         else{
             captureSession?.startRunning()
             didTakePhoto = true
             didPressTakePhoto()
-            
-        }
-        
+        }        
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+    @IBAction func takePhoto() {
         didPressTakeAnother()
-        super.touchesBegan(touches, withEvent:event)
+    }
+    
+    @IBAction func viewPhoto() {
+        let imageFromsource = UIImagePickerController()
+        imageFromsource.delegate = self
+        imageFromsource.allowsEditing = false
+        imageFromsource.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imageFromsource, animated: true, completion: nil)        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage,
+        info: NSDictionary!) {
+        let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.tempImageView.image = temp
+//        self.tempImageView.hidden = false
+        self.dismissViewControllerAnimated(true, completion: {})
+    
     }
     
     
