@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "459562C6B8BE090E81E5766505DA546D541E48E3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1AE52BF8AA2E72389AC1435EBE56523014BD913C" : 0,
+    "459562C6B8BE090E81E5766505DA546D541E48E3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CFA17987-D26D-421C-AFC8-40191E40952A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1AE52BF8AA2E72389AC1435EBE56523014BD913C" : "",
+    "459562C6B8BE090E81E5766505DA546D541E48E3" : "LightingContol\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SnapchatCamera",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SnapchatCamera\/SnapchatCamera.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/excaliburnan\/Advanced-Multicore-Systems.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1AE52BF8AA2E72389AC1435EBE56523014BD913C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/excaliburnan\/LightingContol.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "459562C6B8BE090E81E5766505DA546D541E48E3"
+    }
+  ]
+}

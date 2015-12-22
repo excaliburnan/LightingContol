@@ -8,6 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View2" customModule="SnapchatCamera" customModuleProvider="target">
             <connections>
                 <outlet property="cameraView" destination="8j8-GV-wQg" id="fiw-ax-vZN"/>
+                <outlet property="exposureDurationLabel" destination="CCo-QL-SPD" id="jyi-nP-hXW"/>
+                <outlet property="exposureDurationSlider" destination="4Cg-zH-ico" id="YWm-X1-eYm"/>
+                <outlet property="exposureTimeLabel" destination="wjf-5l-77J" id="gNc-T1-Ezg"/>
+                <outlet property="maxValue" destination="Icf-tq-xTi" id="xiY-aY-1qq"/>
+                <outlet property="minValue" destination="p5X-7u-VmK" id="haq-xs-0xa"/>
                 <outlet property="tempImageView" destination="DL1-w1-hNf" id="RtZ-52-58r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,30 +23,61 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-GV-wQg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DL1-w1-hNf">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-xr-9Mc">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-xr-9Mc">
                     <rect key="frame" x="272" y="621" width="78" height="30"/>
-                    <color key="backgroundColor" red="0.98113655438435443" green="0.95905245208263423" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.99060935264280692" blue="0.77133910002155659" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                     <state key="normal" title="View Photo">
-                        <color key="titleShadowColor" red="0.17365467253487399" green="1" blue="0.89920723613681419" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.74165397799999999" green="0.71810447219999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="viewPhoto" destination="-1" eventType="touchUpInside" id="GYb-dK-uct"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Eu-V1-wat">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Eu-V1-wat">
                     <rect key="frame" x="20" y="621" width="77" height="30"/>
-                    <color key="backgroundColor" red="0.98113655438435443" green="0.95905245208263423" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Take Photo"/>
+                    <color key="backgroundColor" red="1" green="0.98234826226838046" blue="0.74415034641203093" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <state key="normal" title="Take Photo">
+                        <color key="titleColor" red="0.74165397799999999" green="0.71810447219999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="takePhoto" destination="-1" eventType="touchUpInside" id="Kib-wr-4dk"/>
                     </connections>
                 </button>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Cg-zH-ico">
+                    <rect key="frame" x="18" y="15" width="334" height="31"/>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ExpTime:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjf-5l-77J">
+                    <rect key="frame" x="20" y="52" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCo-QL-SPD">
+                    <rect key="frame" x="98" y="53" width="56" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5X-7u-VmK" userLabel="MinValue">
+                    <rect key="frame" x="34" y="63" width="28" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-tq-xTi" userLabel="MaxValue">
+                    <rect key="frame" x="30" y="99" width="32" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="0.33818916509733155" blue="0.3129381846844097" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -63,6 +99,10 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="p5X-7u-VmK"/>
+                    <exclude reference="Icf-tq-xTi"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="0DE-UZ-tlA"/>
                     <exclude reference="4jc-0x-nk0"/>
